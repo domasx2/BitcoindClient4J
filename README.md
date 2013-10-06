@@ -17,7 +17,7 @@ Maven will need to know where to search for this artifact. Add this to your `pom
   <repository>
     <id>github</id>
     <name>GitHub BitcoindClient4j Repository</name>
-    <url>https://raw.github.com/johannbarbie/BitcoindClient4j/mvn-repo</url>
+    <url>https://raw.github.com/juozapas/BitcoindClient4j/mvn-repo</url>
   </repository>
 ```
 Then add the dependency itself:
@@ -25,7 +25,7 @@ Then add the dependency itself:
   <dependency>
     <groupId>com.37coins</groupId>
     <artifactId>BitcoindClient4j</artifactId>
-    <version>0.1.0</version>
+    <version>0.2.0-SNAPSHOT</version>
   </dependency>
 ```
 Having dependencies resolved, you can code away. First initialize the Factory with network parameters:
