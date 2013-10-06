@@ -66,7 +66,9 @@ public interface BitcoindInterface {
 	public List<Address> listreceivedbyaddress(long minConfirmations, boolean includeEmpty);
 	//Get all transactions in blocks since block [blockhash], or all transactions if omitted.
 	public List<LastBlock> listsinceblock(String blockhash, int minConfirmations);
-	//Returns up to [count] most recent transactions skipping the first [from] transactions for account [account]. If [account] not provided will return recent transaction from all accounts.
+    public LastBlock listsinceblock(String blockhash);
+
+    //Returns up to [count] most recent transactions skipping the first [from] transactions for account [account]. If [account] not provided will return recent transaction from all accounts.
 	public List<Transaction> listtransactions(String account, int count, int offset);
 	// Import a private key into your bitcoin wallet. Private key must be in wallet import format (Sipa) beginning with a '5'.
 	public boolean importprivkey(String privateKey);
