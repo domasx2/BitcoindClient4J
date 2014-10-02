@@ -6,7 +6,7 @@
 	<description>A client for the bincoind node</description>
 	<name>BitcoindClient4j</name>
 	<groupId>com.37coins</groupId>
-	<version>0.2.0-SNAPSHOT</version>
+	<version>0.2.2</version>
 
 	<properties>
 		<!-- github server corresponds to entry in ~/.m2/settings.xml -->
@@ -18,21 +18,26 @@
 			<groupId>com.googlecode</groupId>
 			<artifactId>jsonrpc4j</artifactId>
 			<version>0.28</version>
-		</dependency>
-		<dependency>
-			<groupId>com.fasterxml.jackson.core</groupId>
-			<artifactId>jackson-core</artifactId>
-			<version>2.2.2</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>jackson-core</artifactId>
+					<groupId>com.fasterxml.jackson.core</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>jackson-databind</artifactId>
+					<groupId>com.fasterxml.jackson.core</groupId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
-			<version>2.2.2</version>
+			<version>2.2.3</version>
 		</dependency>
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-annotations</artifactId>
-			<version>2.2.2</version>
+			<version>2.2.3</version>
 		</dependency>
 		<dependency>
 			<groupId>org.slf4j</groupId>
@@ -59,7 +64,7 @@
 		<plugins>
 			<plugin>
 				<artifactId>maven-deploy-plugin</artifactId>
-				<version>2.7</version>
+				<version>2.8.2</version>
 				<configuration>
 					<altDeploymentRepository>internal.repo::default::file://${project.build.directory}/mvn-repo</altDeploymentRepository>
 				</configuration>
@@ -76,7 +81,7 @@
 			<plugin>
 				<groupId>com.github.github</groupId>
 				<artifactId>site-maven-plugin</artifactId>
-				<version>0.8</version>
+				<version>0.10</version>
 				<configuration>
 					<message>Maven artifacts for ${project.artifactId} ${project.version}</message>
 					<noJekyll>true</noJekyll>
@@ -98,6 +103,13 @@
 				</executions>
 			</plugin>
 		</plugins>
+    <extensions>
+      <extension>
+        <groupId>org.springframework.build</groupId>
+        <artifactId>aws-maven</artifactId>
+        <version>5.0.0.RELEASE</version>
+      </extension>
+    </extensions>
 	</build>
 
 	<distributionManagement>
